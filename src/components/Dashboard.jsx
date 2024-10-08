@@ -1,0 +1,37 @@
+import { useState } from 'react';
+import { Tab1 } from './Tab1';
+import { Tab2 } from './Tab2';
+
+export function Dashboard() {
+	const [activeTab, setActiveTab] = useState('tab1');
+
+	const renderContent = () => {
+		switch (activeTab) {
+			case 'tab1':
+				return <Tab1 />;
+			case 'tab2':
+				return <Tab2 />;
+			case 'tab3':
+				return <div>Contenido de Tab 3</div>;
+			case 'tab4':
+				return <div>Contenido de Tab 4</div>;
+			default:
+				return <Tab1 />;
+		}
+	};
+
+	return (
+		<div>
+			<h1>Colombia Information Dashboard</h1>
+			<nav>
+				<ul>
+					<li onClick={() => setActiveTab('tab1')}>Tab 1</li>
+					<li onClick={() => setActiveTab('tab2')}>Tab 2</li>
+					<li onClick={() => setActiveTab('tab3')}>Tab 3</li>
+					<li onClick={() => setActiveTab('tab4')}>Tab 4</li>
+				</ul>
+			</nav>
+			<div>{renderContent()}</div>
+		</div>
+	);
+}
