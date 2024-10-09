@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../ColombiaDashboard.css';
 import { Tab1 } from './Tab1';
 import { Tab2 } from './Tab2';
 
@@ -22,13 +23,21 @@ export function Dashboard() {
 
 	return (
 		<div>
-			<h1>Colombia Information Dashboard</h1>
+			<h1>Colombia Dashboard</h1>
 			<nav>
-				<ul>
-					<li onClick={() => setActiveTab('tab1')}>Tab 1</li>
-					<li onClick={() => setActiveTab('tab2')}>Tab 2</li>
-					<li onClick={() => setActiveTab('tab3')}>Tab 3</li>
-					<li onClick={() => setActiveTab('tab4')}>Tab 4</li>
+				<ul className="nav-tabs">
+					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
+						Tab 1
+					</li>
+					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab2')}>
+						Tab 2
+					</li>
+					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
+						Tab 3
+					</li>
+					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab4')}>
+						Tab 4
+					</li>
 				</ul>
 			</nav>
 			<div>{renderContent()}</div>

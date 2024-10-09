@@ -1,0 +1,22 @@
+.nav-tabs {
+	display: flex;
+	list-style: none;
+	padding: 0;
+}
+
+.nav-tabs li {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #6267a1;
+	margin-right: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.nav-tabs li:hover {
+	background-color: #7276aa;
+}
+
+/* Styles for the active tab */
+.nav-tabs li.active {
+	background-color: #434aa7;
+}

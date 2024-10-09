@@ -6,8 +6,8 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Navigate to="/colombia_dash" />} />
 				<Route path="/colombia_dash" element={<Dashboard />} />
+				<Route path="*" element={<Navigate to="/colombia_dash" replace />} />
 			</Routes>
 		</BrowserRouter>
 	);
