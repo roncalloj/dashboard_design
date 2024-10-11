@@ -22,25 +22,25 @@ export function Dashboard() {
 	};
 
 	return (
-		<div>
+		<>
 			<h1>Colombia Dashboard</h1>
 			<nav>
 				<ul className="nav-tabs">
 					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
 						Tab 1
 					</li>
-					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab2')}>
+					<li className={activeTab === 'tab2' ? 'active' : ''} onClick={() => setActiveTab('tab2')}>
 						Tab 2
 					</li>
-					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
+					<li className={activeTab === 'tab3' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
 						Tab 3
 					</li>
-					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab4')}>
+					<li className={activeTab === 'tab4' ? 'active' : ''} onClick={() => setActiveTab('tab4')}>
 						Tab 4
 					</li>
 				</ul>
 			</nav>
-			<div>{renderContent()}</div>
-		</div>
+			<div className="dash-content">{renderContent()}</div>
+		</>
 	);
 }
