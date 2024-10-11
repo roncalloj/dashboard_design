@@ -27,10 +27,10 @@ export function Dashboard() {
 			<nav>
 				<ul className="nav-tabs">
 					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
-						Tab 1
+						Presidents
 					</li>
 					<li className={activeTab === 'tab2' ? 'active' : ''} onClick={() => setActiveTab('tab2')}>
-						Tab 2
+						Touristic Attractions
 					</li>
 					<li className={activeTab === 'tab3' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
 						Tab 3

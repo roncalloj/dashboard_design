@@ -1,32 +1,33 @@
 import '../App.css';
 import { useAttractions } from '../hooks/useAttractions.js';
-// import { useConsolidAttractions } from '../hooks/useConsolidAttractions.js';
+import { useAttractionsDepartments } from '../hooks/useAttractionsDepartments.js';
+import { consolidatedAttractions } from '../utilities/attractionsUtils.js';
 
 export function Tab2() {
-	// const { attractionsResult } = useAttractions();
 	const { arrayCityCounter } = useAttractions();
-	// const { attractionData } = useConsolidAttractions({ arrayCityCounter });
-	// const attractionsResult = [];
+	const { attractionsDepartments } = useAttractionsDepartments({ arrayCityCounter });
 
-	const hasTourisicAttractions = arrayCityCounter?.length > 0;
+	const attractionsWithDepartmentNames = consolidatedAttractions(arrayCityCounter, attractionsDepartments);
+
+	const hasTourisicAttractions = attractionsWithDepartmentNames?.length > 0;
 
 	return (
 		<>
 			{hasTourisicAttractions ? (
 				<table border="1" cellSpacing="0" cellPadding="5">
 					<thead>
-						<tr>
+						<tr className="table-header">
 							<th>Ciudad</th>
 							<th>Departamento</th>
 							<th>Conteo</th>
 						</tr>
 					</thead>
 					<tbody>
-						{arrayCityCounter.map((attraction) => (
+						{attractionsWithDepartmentNames.map((attraction) => (
 							<tr key={attraction.attractionID}>
-								<td>{attraction.cityName}</td>
-								<td>{attraction.departmentID}</td>
-								<td>{attraction.count}</td>
+								<td className="table-data">{attraction.cityName}</td>
+								<td className="table-data">{attraction.departmentName}</td>
+								<td className="table-data">{attraction.count}</td>
 							</tr>
 						))}
 					</tbody>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getPresidentsData } from '../services/getPresidents.js';
+import { fetchPresidentsData } from '../services/fetchPresidents.js';
 
 export function usePresidents() {
 	const [arrayParties, setArrayParties] = useState([]);
 	const presidentsData = () => {
-		getPresidentsData().then((presidentsParties) => setArrayParties(presidentsParties));
+		fetchPresidentsData().then((presidentsParties) => setArrayParties(presidentsParties));
 	};
 	useEffect(presidentsData, []);
 

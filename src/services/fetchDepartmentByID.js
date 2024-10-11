@@ -1,6 +1,6 @@
 const department_url = 'https://api-colombia.com/api/v1/Department/';
 
-export async function getDepartment(departmentID) {
+export async function fetchDepartment(departmentID) {
 	if (departmentID === '') return null;
 
 	try {

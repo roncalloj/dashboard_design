@@ -1,8 +1,8 @@
-import { capitalizeWords } from './capitalizing.js';
+import { capitalizeWords } from '../utilities/capitalizing.js';
 
 const presidents_url = 'https://api-colombia.com/api/v1/President';
 
-export async function getPresidentsData() {
+export async function fetchPresidentsData() {
 	try {
 		const response = await fetch(presidents_url);
 		const data = await response.json();

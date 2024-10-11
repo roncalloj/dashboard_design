@@ -1,6 +1,6 @@
 const attractions_url = 'https://api-colombia.com/api/v1/TouristicAttraction';
 
-export async function getTouristicAttractions() {
+export async function fetchTouristicAttractions() {
 	try {
 		const response = await fetch(attractions_url);
 		const data = await response.json();
