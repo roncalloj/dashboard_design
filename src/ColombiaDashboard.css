@@ -8,7 +8,9 @@
 	padding: 10px;
 	cursor: pointer;
 	background-color: #6267a1;
-	margin-right: 5px;
+	border-radius: 6px;
+	margin-right: 6px;
+	padding: 5px 18px;
 	transition: background-color 0.3s ease;
 }
 
@@ -16,7 +18,21 @@
 	background-color: #7276aa;
 }
 
-/* Styles for the active tab */
 .nav-tabs li.active {
 	background-color: #434aa7;
+}
+
+.dash-content {
+	align-self: center;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.table-header {
+	background-color: #333333;
+}
+
+.table-data {
+	min-width: 3vw;
+	padding: 3px 35px;
 }
