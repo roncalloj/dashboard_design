@@ -1,4 +1,5 @@
 import '../App.css';
+import '../ColombiaDashboard.css';
 import { usePresidents } from '../hooks/usePresidents.js';
 
 export function Tab1() {
