@@ -137,7 +137,6 @@ export function Tab3() {
 			) : (
 				<p> Cargando... </p>
 			)}
-			{/* <p>En desarrollo...</p> */}
 		</>
 	);
 }

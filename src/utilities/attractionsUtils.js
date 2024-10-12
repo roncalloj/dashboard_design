@@ -11,25 +11,6 @@ export function consolidatedAttractions(attractionsDataArray, attractionsDepartm
 	}
 }
 
-export function countAttractionsByCity(arrayAttractions) {
-	const counter = {};
-	arrayAttractions.forEach((attraction) => {
-		const { attractionID, cityID, cityName, departmentID } = attraction;
-		if (counter[cityName]) {
-			counter[cityName].count++;
-		} else {
-			counter[cityName] = {
-				attractionID,
-				cityID,
-				cityName,
-				departmentID,
-				count: 1,
-			};
-		}
-	});
-	return counter;
-}
-
 function getUniqueDepartmentIDs(array) {
 	return [...new Set(array?.map((rawData) => rawData.departmentID))];
 }

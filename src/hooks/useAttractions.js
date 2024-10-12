@@ -1,15 +1,18 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchTouristicAttractions } from '../services/fetchAttractions.js';
-import { countAttractionsByCity } from '../utilities/attractionsUtils.js';
+import { fetchColombiaData } from '../services/fetchColombiaData.js';
+import { counter } from '../utilities/counter.js';
+import { handleAttractionsData } from '../utilities/handleAttractionsData.js';
 
 export function useAttractions() {
 	const [arrayAttractions, setArrayAttractions] = useState([]);
-
+	const endpoint = 'TouristicAttraction';
 	const attractionsData = () => {
-		fetchTouristicAttractions().then((attractionsResult) => setArrayAttractions(attractionsResult));
+		fetchColombiaData(endpoint)
+			.then((attractionsRawData) => handleAttractionsData(attractionsRawData))
+			.then((attractions) => setArrayAttractions(attractions));
 	};
 
-	const cityCounter = useMemo(() => countAttractionsByCity(arrayAttractions), [arrayAttractions]);
+	const cityCounter = useMemo(() => counter(arrayAttractions, 'cityName'), [arrayAttractions]);
 
 	//Convertir el objeto en arreglo y se ordenan los objetos por el número de apariciones en orden descendente
 	const arrayCityCounter = useMemo(() => {

@@ -1,29 +1,21 @@
-import { useEffect, useState } from 'react';
-import { fetchPresidentsData } from '../services/fetchPresidents.js';
+import { useEffect, useMemo, useState } from 'react';
+import { fetchColombiaData } from '../services/fetchColombiaData.js';
+import { counter } from '../utilities/counter.js';
+import { handlePresidentsData } from '../utilities/handlePresidentsData.js';
 
 export function usePresidents() {
 	const [arrayParties, setArrayParties] = useState([]);
+	const endpoint = 'President';
 	const presidentsData = () => {
-		fetchPresidentsData().then((presidentsParties) => setArrayParties(presidentsParties));
+		fetchColombiaData(endpoint)
+			.then((presidentsRawData) => handlePresidentsData(presidentsRawData))
+			.then((presidentsParties) => setArrayParties(presidentsParties));
 	};
+
+	const partyCounter = useMemo(() => counter(arrayParties, 'politicalParty'), [arrayParties]);
+
 	useEffect(presidentsData, []);
 
-	const partyCounter = {};
-
-	arrayParties?.map((parties) => {
-		const { presidentID, politicalParty } = parties;
-		// Si el partido ya está en el contador, incrementa su valor
-		if (partyCounter[politicalParty]) {
-			partyCounter[politicalParty].count++;
-		} else {
-			// Si no está en el contador, se agrega con valor 1 y se le asigna una id
-			partyCounter[politicalParty] = {
-				presidentID,
-				politicalParty,
-				count: 1,
-			};
-		}
-	});
 	//Convertir el objeto en arreglo
 	const countedParties = Object.values(partyCounter);
 	//Se ordenan los objetos por el número de apariciones en orden descendente
