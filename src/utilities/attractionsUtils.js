@@ -1,16 +1,14 @@
 export function consolidatedAttractions(attractionsDataArray, attractionsDepartmentsArray) {
-	if (!attractionsDataArray) return [];
-	if (!attractionsDepartmentsArray) return [];
-	// Crear un mapa de departamentos para facilitar la búsqueda
-	const departmentMap = Object.fromEntries(
-		attractionsDepartmentsArray?.map((department) => [department.departmentID, department.departmentName])
-	);
+	if (attractionsDepartmentsArray?.length > 0) {
+		const departmentMap = Object.fromEntries(
+			attractionsDepartmentsArray?.map((department) => [department.departmentID, department.departmentName])
+		);
 
-	// Crear un nuevo arreglo con el nombre del departamento incluido
-	return attractionsDataArray?.map((attraction) => ({
-		...attraction,
-		departmentName: departmentMap[attraction.departmentID] || 'Unknown', // Asignar 'Unknown' si no se encuentra el ID
-	}));
+		return attractionsDataArray?.map((attraction) => ({
+			...attraction,
+			departmentName: departmentMap[attraction.departmentID] || 'Unknown', // Asignar 'Unknown' si no se encuentra el ID
+		}));
+	}
 }
 
 export function countAttractionsByCity(arrayAttractions) {
