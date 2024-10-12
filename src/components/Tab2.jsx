@@ -33,7 +33,7 @@ export function Tab2() {
 					</tbody>
 				</table>
 			) : (
-				<p> No results </p>
+				<p> Cargando... </p>
 			)}
 		</>
 	);

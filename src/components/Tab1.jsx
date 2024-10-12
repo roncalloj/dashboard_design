@@ -26,7 +26,7 @@ export function Tab1() {
 					</tbody>
 				</table>
 			) : (
-				<p> Sin resultados para mostrar </p>
+				<p> Cargando... </p>
 			)}
 		</>
 	);
