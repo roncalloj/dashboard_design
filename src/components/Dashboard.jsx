@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../ColombiaDashboard.css';
 import { Tab1 } from './Tab1';
 import { Tab2 } from './Tab2';
+import { Tab3 } from './Tab3';
 
 export function Dashboard() {
 	const [activeTab, setActiveTab] = useState('tab1');
@@ -13,7 +14,7 @@ export function Dashboard() {
 			case 'tab2':
 				return <Tab2 />;
 			case 'tab3':
-				return <div>Contenido de Tab 3</div>;
+				return <Tab3 />;
 			case 'tab4':
 				return <div>Contenido de Tab 4</div>;
 			default:
@@ -27,13 +28,13 @@ export function Dashboard() {
 			<nav>
 				<ul className="nav-tabs">
 					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
-						Presidents
+						Presidentes
 					</li>
 					<li className={activeTab === 'tab2' ? 'active' : ''} onClick={() => setActiveTab('tab2')}>
-						Touristic Attractions
+						Atracciones turísticas
 					</li>
 					<li className={activeTab === 'tab3' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
-						Tab 3
+						Aeropuertos
 					</li>
 					<li className={activeTab === 'tab4' ? 'active' : ''} onClick={() => setActiveTab('tab4')}>
 						Tab 4
