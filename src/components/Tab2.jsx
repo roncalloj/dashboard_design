@@ -1,16 +1,11 @@
 import '../App.css';
 import '../ColombiaDashboard.css';
 import { useAttractions } from '../hooks/useAttractions.js';
-import { useAttractionsDepartments } from '../hooks/useAttractionsDepartments.js';
-import { consolidatedAttractions } from '../utilities/attractionsUtils.js';
 
 export function Tab2() {
-	const { arrayCityCounter } = useAttractions();
-	const { attractionsDepartments } = useAttractionsDepartments({ arrayCityCounter });
+	const { attractionsResults } = useAttractions();
 
-	const attractionsWithDepartmentNames = consolidatedAttractions(arrayCityCounter, attractionsDepartments);
-
-	const hasTourisicAttractions = attractionsWithDepartmentNames?.length > 0;
+	const hasTourisicAttractions = attractionsResults?.length > 0;
 
 	return (
 		<>
@@ -24,7 +19,7 @@ export function Tab2() {
 						</tr>
 					</thead>
 					<tbody>
-						{attractionsWithDepartmentNames.map((attraction) => (
+						{attractionsResults.map((attraction) => (
 							<tr key={attraction.attractionID}>
 								<td className="table-data">{attraction.departmentName}</td>
 								<td className="table-data">{attraction.cityName}</td>

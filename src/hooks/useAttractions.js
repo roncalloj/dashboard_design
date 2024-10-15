@@ -1,26 +1,27 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchColombiaData } from '../services/fetchColombiaData.js';
+import { useMemo } from 'react';
+import { consolidatedResult } from '../utilities/consolidatedResult.js';
 import { counter } from '../utilities/counter.js';
 import { handleAttractionsData } from '../utilities/handleAttractionsData.js';
+import { sortByCount } from '../utilities/sortByCount.js';
+import { useColombiaData } from './useColombiaData.js';
+import { useDepartments } from './useDepartments.js';
 
 export function useAttractions() {
-	const [arrayAttractions, setArrayAttractions] = useState([]);
 	const endpoint = 'TouristicAttraction';
-	const attractionsData = () => {
-		fetchColombiaData(endpoint)
-			.then((attractionsRawData) => handleAttractionsData(attractionsRawData))
-			.then((attractions) => setArrayAttractions(attractions));
-	};
+
+	const { colombiaData: arrayAttractions } = useColombiaData(endpoint, handleAttractionsData);
 
 	const cityCounter = useMemo(() => counter(arrayAttractions, 'cityName'), [arrayAttractions]);
+	const arrayCityCounter = useMemo(() => sortByCount(cityCounter), [cityCounter]);
 
-	//Convertir el objeto en arreglo y se ordenan los objetos por el número de apariciones en orden descendente
-	const arrayCityCounter = useMemo(() => {
-		const cityArray = Object.values(cityCounter);
-		return cityArray.sort((a, b) => b.count - a.count);
-	}, [cityCounter]);
+	const { arrayDepartments } = useDepartments();
 
-	useEffect(attractionsData, []);
+	const attractionsResults = consolidatedResult(
+		arrayCityCounter,
+		arrayDepartments,
+		'departmentID',
+		'departmentName'
+	);
 
-	return { arrayCityCounter };
+	return { attractionsResults };
 }
