@@ -10,22 +10,25 @@ export function Tab1() {
 	return (
 		<>
 			{haspresidents ? (
-				<table border="1" cellSpacing="0" cellPadding="5">
-					<thead>
-						<tr className="table-header">
-							<th>Partido político</th>
-							<th>Conteo</th>
-						</tr>
-					</thead>
-					<tbody>
-						{countedParties.map((party) => (
-							<tr key={party.presidentID}>
-								<td className="table-data">{party.politicalParty}</td>
-								<td className="table-data">{party.count}</td>
+				<section className="table-section">
+					<h2>Presidentes por partidos políticos</h2>
+					<table border="1" cellSpacing="0" cellPadding="5">
+						<thead>
+							<tr className="table-header">
+								<th>Partido político</th>
+								<th>Conteo</th>
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{countedParties.map((party) => (
+								<tr key={party.presidentID}>
+									<td className="table-data">{party.politicalParty}</td>
+									<td className="table-data">{party.count}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</section>
 			) : (
 				<p> Cargando... </p>
 			)}
