@@ -6,17 +6,21 @@ import { sortByCount } from '../utilities/sortByCount.js';
 import { useColombiaData } from './useColombiaData.js';
 import { useRegions } from './useRegions.js';
 
-export function useAirports() {
+export function useAirports(selectedKey) {
 	const endpoint = 'Airport';
 
 	const { colombiaData: airportsData } = useColombiaData(endpoint, handleAirportsData);
-
-	const cityCounter = useMemo(() => counter(airportsData, 'cityName'), [airportsData]);
-	const arrayCityCounter = useMemo(() => sortByCount(cityCounter), [cityCounter]);
-
 	const { arrayRegions } = useRegions();
 
-	const airportsResults = consolidatedResult(arrayCityCounter, arrayRegions, 'regionID', 'regionName');
+	const allAirportsData = useMemo(() => {
+		if (airportsData.length > 0 && arrayRegions.length > 0) {
+			return consolidatedResult(airportsData, arrayRegions, 'regionID', 'regionName');
+		}
+		return [];
+	}, [airportsData, arrayRegions]);
+
+	const groupedCounter = useMemo(() => counter(allAirportsData, selectedKey), [allAirportsData, selectedKey]);
+	const airportsResults = useMemo(() => sortByCount(groupedCounter), [groupedCounter]);
 
 	return { airportsResults };
 }
