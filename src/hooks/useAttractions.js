@@ -6,22 +6,25 @@ import { sortByCount } from '../utilities/sortByCount.js';
 import { useColombiaData } from './useColombiaData.js';
 import { useDepartments } from './useDepartments.js';
 
-export function useAttractions() {
+export function useAttractions(selectedKey) {
 	const endpoint = 'TouristicAttraction';
 
 	const { colombiaData: arrayAttractions } = useColombiaData(endpoint, handleAttractionsData);
-
-	const cityCounter = useMemo(() => counter(arrayAttractions, 'cityName'), [arrayAttractions]);
-	const arrayCityCounter = useMemo(() => sortByCount(cityCounter), [cityCounter]);
-
 	const { arrayDepartments } = useDepartments();
 
-	const attractionsResults = consolidatedResult(
-		arrayCityCounter,
-		arrayDepartments,
-		'departmentID',
-		'departmentName'
+	const allAttractionsData = useMemo(() => {
+		if (arrayAttractions.length > 0 && arrayDepartments.length > 0) {
+			return consolidatedResult(arrayAttractions, arrayDepartments, 'departmentID', 'departmentName');
+		}
+		return [];
+	}, [arrayAttractions, arrayDepartments]);
+
+	const groupedCounter = useMemo(
+		() => counter(allAttractionsData, selectedKey),
+		[allAttractionsData, selectedKey]
 	);
+
+	const attractionsResults = useMemo(() => sortByCount(groupedCounter), [groupedCounter]);
 
 	return { attractionsResults };
 }
