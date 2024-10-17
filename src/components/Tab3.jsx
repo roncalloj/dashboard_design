@@ -11,7 +11,6 @@ export function Tab3() {
 		{ label: 'Ciudad', parameter: 'cityName' },
 		{ label: 'Departamento', parameter: 'departmentName' },
 		{ label: 'Región', parameter: 'regionName' },
-		{ label: 'Tipo', parameter: 'airportType' },
 	];
 
 	const hasAirports = airportsResults?.length > 0;
@@ -40,6 +39,7 @@ export function Tab3() {
 						<thead>
 							<tr className="table-header">
 								<th>{selectedKey.label}</th>
+								<th>Tipo</th>
 								<th>Conteo</th>
 							</tr>
 						</thead>
@@ -47,6 +47,7 @@ export function Tab3() {
 							{airportsResults.map((airport) => (
 								<tr key={airport.airportID}>
 									<td className="table-data">{airport[selectedKey.parameter]}</td>
+									<td className="table-data">{airport.airportType}</td>
 									<td className="table-data">{airport.count}</td>
 								</tr>
 							))}

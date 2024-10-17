@@ -19,8 +19,13 @@ export function useAirports(selectedKey) {
 		return [];
 	}, [airportsData, arrayRegions]);
 
-	const groupedCounter = useMemo(() => counter(allAirportsData, selectedKey), [allAirportsData, selectedKey]);
+	const groupedCounter = useMemo(
+		() => counter(allAirportsData, selectedKey, 'airportType'),
+		[allAirportsData, selectedKey]
+	);
 	const airportsResults = useMemo(() => sortByCount(groupedCounter), [groupedCounter]);
+
+	console.log(airportsResults);
 
 	return { airportsResults };
 }
