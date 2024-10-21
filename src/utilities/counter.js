@@ -6,7 +6,7 @@ export function counter(targetArray, counterParameter, storedParameter) {
 		if (counter[key]) {
 			counter[key].count++;
 			if (!counter[key][storedParameter].includes(keyToStore)) {
-				counter[key][storedParameter].push(' / ' + keyToStore);
+				counter[key][storedParameter].push(keyToStore);
 			}
 		} else {
 			counter[key] = {

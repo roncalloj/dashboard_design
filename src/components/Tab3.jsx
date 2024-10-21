@@ -47,7 +47,7 @@ export function Tab3() {
 							{airportsResults.map((airport) => (
 								<tr key={airport.airportID}>
 									<td className="table-data">{airport[selectedKey.parameter]}</td>
-									<td className="table-data">{airport.airportType}</td>
+									<td className="table-data">{airport.airportType.join(' / ')}</td>
 									<td className="table-data">{airport.count}</td>
 								</tr>
 							))}

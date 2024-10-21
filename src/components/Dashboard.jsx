@@ -15,8 +15,6 @@ export function Dashboard() {
 				return <Tab2 />;
 			case 'tab3':
 				return <Tab3 />;
-			case 'tab4':
-				return <div>Contenido de Tab 4</div>;
 			default:
 				return <Tab1 />;
 		}
@@ -35,9 +33,6 @@ export function Dashboard() {
 					</li>
 					<li className={activeTab === 'tab3' ? 'active' : ''} onClick={() => setActiveTab('tab3')}>
 						Aeropuertos
-					</li>
-					<li className={activeTab === 'tab4' ? 'active' : ''} onClick={() => setActiveTab('tab4')}>
-						Tab 4
 					</li>
 				</ul>
 			</nav>

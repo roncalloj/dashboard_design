@@ -23,9 +23,8 @@ export function useAirports(selectedKey) {
 		() => counter(allAirportsData, selectedKey, 'airportType'),
 		[allAirportsData, selectedKey]
 	);
-	const airportsResults = useMemo(() => sortByCount(groupedCounter), [groupedCounter]);
 
-	console.log(airportsResults);
+	const airportsResults = useMemo(() => sortByCount(groupedCounter), [groupedCounter]);
 
 	return { airportsResults };
 }
