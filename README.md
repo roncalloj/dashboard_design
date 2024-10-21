@@ -1,8 +1,19 @@
-# React + Vite
+# 🇨🇴 Colombia Dashboard Data
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React Badge](https://img.shields.io/badge/React-18.0.0-blue)
+![API-Colombia Badge](https://img.shields.io/badge/API--Colombia-Data-green)
 
-Currently, two official plugins are available:
+## 🌍 Overview
+This interactive dashboard presents key data about **Colombia**, displaying insights in an intuitive and visually engaging manner. The dashboard is built entirely using **React** and consumes data from the [API-Colombia](https://api-colombia.com/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📊 Features:
+- **Presidents**: Grouped and counted by their political party.
+- **Touristic Attractions**: Grouped and counted by city or department.
+- **Airports**: Grouped and counted by city, department, or region.
+
+## ⚙️ Technology Stack
+- **React**: For building a dynamic and responsive user interface.
+- **API-Colombia**: The source of all data, providing updated information on presidents, attractions, and airports.
+
+## 📡 API Reference
+All data is fetched from the [API-Colombia](https://api-colombia.com/), which provides comprehensive information about Colombia.
