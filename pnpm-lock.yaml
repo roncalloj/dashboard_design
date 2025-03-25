@@ -47,7 +47,7 @@ devDependencies:
     specifier: 17.1.0
     version: 17.1.0
   vite:
-    specifier: ^5.4.15
+    specifier: 5.4.15
     version: 5.4.15
 
 packages:
