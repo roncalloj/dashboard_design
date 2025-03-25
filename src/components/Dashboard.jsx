@@ -22,7 +22,7 @@ export function Dashboard() {
 
 	return (
 		<>
-			<h1>Colombia Dashboard</h1>
+			<h1>Dashboard de Colombia</h1>
 			<nav>
 				<ul className="nav-tabs">
 					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
