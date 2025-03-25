@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import '../App.css';
-import '../ColombiaDashboard.css';
+import '../styles/layout.css';
+import '../styles/components.css';
 import { useAirports } from '../hooks/useAirports.js';
 
 export function Tab3() {

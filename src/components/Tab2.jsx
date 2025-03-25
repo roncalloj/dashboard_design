@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import '../App.css';
-import '../ColombiaDashboard.css';
+import '../styles/layout.css';
+import '../styles/components.css';
 import { useAttractions } from '../hooks/useAttractions.js';
 
 export function Tab2() {

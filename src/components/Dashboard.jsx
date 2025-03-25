@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import '../ColombiaDashboard.css';
+import '../styles/components.css';
 import { Tab1 } from './Tab1';
 import { Tab2 } from './Tab2';
 import { Tab3 } from './Tab3';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Dashboard() {
 	const [activeTab, setActiveTab] = useState('tab1');
@@ -22,7 +23,10 @@ export function Dashboard() {
 
 	return (
 		<>
-			<h1>Dashboard de Colombia</h1>
+			<div className="header-container">
+				<h1>Dashboard de Colombia</h1>
+				<ThemeToggle />
+			</div>
 			<nav>
 				<ul className="nav-tabs">
 					<li className={activeTab === 'tab1' ? 'active' : ''} onClick={() => setActiveTab('tab1')}>
