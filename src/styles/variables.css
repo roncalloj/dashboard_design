@@ -1,0 +1,82 @@
+:root {
+	/* Dark Theme Colors (Default) */
+	--color-text-primary-dark: rgba(255, 255, 255, 0.87);
+	--color-background-primary-dark: #262626;
+	--color-background-secondary-dark: #333333;
+	--color-accent-primary-dark: #646cff;
+	--color-accent-primary-rgb-dark: 100, 108, 255;
+	--color-accent-hover-dark: #535bf2;
+	--color-tab-default-dark: #6267a1;
+	--color-tab-hover-dark: #7276aa;
+	--color-tab-active-dark: #434aa7;
+	--color-table-border-dark: #444;
+	--color-button-bg-dark: #1a1a1a;
+	--color-button-text-dark: #ffffff;
+	--color-heading-dark: #8bb8fe;
+	--color-label-dark: #a5b4fc;
+	
+	/* Light Theme Colors */
+	--color-text-primary-light: #213547;
+	--color-background-primary-light: #f5f5f5;
+	--color-background-secondary-light: #ffffff;
+	--color-accent-primary-light: #4f46e5;
+	--color-accent-primary-rgb-light: 79, 70, 229;
+	--color-accent-hover-light: #4338ca;
+	--color-tab-default-light: #c7d2fe;
+	--color-tab-hover-light: #a5b4fc;
+	--color-tab-active-light: #818cf8;
+	--color-table-border-light: #e5e7eb;
+	--color-button-bg-light: #e2e8f0;
+	--color-button-text-light: #1e293b;
+	--color-heading-light: #3730a3;
+	--color-label-light: #4f46e5;
+	
+	/* Default theme (dark) */
+	--color-text-primary: var(--color-text-primary-dark);
+	--color-background-primary: var(--color-background-primary-dark);
+	--color-background-secondary: var(--color-background-secondary-dark);
+	--color-accent-primary: var(--color-accent-primary-dark);
+	--color-accent-primary-rgb: var(--color-accent-primary-rgb-dark);
+	--color-accent-hover: var(--color-accent-hover-dark);
+	--color-tab-default: var(--color-tab-default-dark);
+	--color-tab-hover: var(--color-tab-hover-dark);
+	--color-tab-active: var(--color-tab-active-dark);
+	--color-table-border: var(--color-table-border-dark);
+	--color-button-bg: var(--color-button-bg-dark);
+	--color-button-text: var(--color-button-text-dark);
+	--color-heading: var(--color-heading-dark);
+	--color-label: var(--color-label-dark);
+	
+	/* Typography */
+	--font-family-base: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	--line-height-base: 1.5;
+	--font-weight-base: 400;
+	
+	/* Spacing */
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 2rem;
+	
+	/* Border radius */
+	--border-radius-sm: 5px;
+	--border-radius-md: 6px;
+	--border-radius-lg: 8px;
+}
+
+/* Light Theme Class */
+.light-theme {
+	--color-text-primary: var(--color-text-primary-light);
+	--color-background-primary: var(--color-background-primary-light);
+	--color-background-secondary: var(--color-background-secondary-light);
+	--color-accent-primary: var(--color-accent-primary-light);
+	--color-accent-primary-rgb: var(--color-accent-primary-rgb-light);
+	--color-accent-hover: var(--color-accent-hover-light);
+	--color-tab-default: var(--color-tab-default-light);
+	--color-tab-hover: var(--color-tab-hover-light);
+	--color-tab-active: var(--color-tab-active-light);
+	--color-table-border: var(--color-table-border-light);
+	--color-button-bg: var(--color-button-bg-light);
+	--color-button-text: var(--color-button-text-light);
+	--color-heading: var(--color-heading-light);
+	--color-label: var(--color-label-light);
+}

@@ -1,0 +1,113 @@
+/* Import variables */
+@import './variables.css';
+
+/* Base styles */
+:root {
+	font-family: var(--font-family-base);
+	line-height: var(--line-height-base);
+	font-weight: var(--font-weight-base);
+	
+	color-scheme: light dark;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	background-color: var(--color-background-primary);
+	color: var(--color-text-primary);
+	transition: background-color 0.3s ease, color 0.3s ease;
+	display: flex;
+	place-items: center;
+	line-height: 1.6;
+	padding: 20px;
+	background-color: var(--color-background-secondary);
+}
+
+h1 {
+	font-size: 2.5rem;
+	line-height: 1.1;
+	margin-bottom: var(--spacing-md);
+	color: var(--color-text-primary);
+	transition: color 0.3s ease;
+}
+
+a {
+	font-weight: 500;
+	color: var(--color-accent-primary);
+	text-decoration: inherit;
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2rem;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	h1 {
+		font-size: 1.8rem;
+	}
+	
+	h2 {
+		font-size: 1.3rem;
+	}
+	
+	body {
+		font-size: 0.9rem;
+	}
+}
+
+/* Button styles */
+button {
+	border-radius: var(--border-radius-md);
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: var(--color-button-bg);
+	color: var(--color-button-text);
+	cursor: pointer;
+	transition: border-color 0.25s, background-color 0.25s;
+}
+
+button:hover {
+	border-color: var(--color-accent-primary);
+	background-color: var(--color-accent-primary);
+	color: white;
+}
+
+button:focus,
+button:focus-visible {
+	outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Responsive button styles */
+@media (max-width: 480px) {
+	button {
+		padding: 0.5em 1em;
+		font-size: 0.9em;
+	}
+}
